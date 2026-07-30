@@ -1,0 +1,21 @@
+name = input("ENter your name: ").strip().title()
+age = input("Enter age: ")
+uni = input("Enter university name: ").strip().title()
+city = input("Enter city name: ").strip().title()
+gmail = input("Enter your gmail: ").strip()
+phone = str(input("Enter your phone number: ")).strip()
+un, dom = gmail.split("@")
+
+print("=" * 30)
+print("STUDENT PROFILE".center(30))
+print("=" * 30)
+
+print(f"{'Name':12}: {name}")
+print(f"{'Age':12}: {age}")
+print(f"{'University':12}: {uni}")
+print(f"{'City':12}: {city}")
+print(f"{'Username':12}: {un}")
+print(f"{'Domain':12}: {dom}")
+print(f"{'Phone':12}: {"*" * (len(phone) - 3)} {phone[-3: ]}")
+
+print("=" * 30)

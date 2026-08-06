@@ -67,7 +67,17 @@ while(choice != 6):
         name = input("Enter the product name: ").strip().title()
         quantity = int(input("Enter the Quantity: "))
 
-        if name in products and products[name]['stock'] >= quantity:
+        if name in cart and name in products:
+            while(quantity > products[name]['stock']):
+                print(f"This product stock is {products[name]['stock']}")
+                quantity = int(input("Enter again or zero if don't want: "))
+
+            cart[name][0] += quantity
+            products[name]['stock'] -= quantity
+            print(f"{quantity} '{name}' added to the cart successfully! ")
+
+
+        elif name in products and products[name]['stock'] >= quantity:
             cart[name] = [quantity, products[name]['price']]
             
             products[name]['stock'] -= quantity
@@ -120,11 +130,9 @@ while(choice != 6):
             print(f"{item: <12} {data[0]: <9} {data[1]}")
         print(15 * "- ")
 
-        print(f"{'Total':<12} : \t {total}")
+        print(f"{'Total':<12} {':': <9} {total}")
 
-    
-    
-
-        
-
-
+    elif choice == 6:
+        print("Thank You for Shopping! ")
+    else:
+        print("You Entered wrong choice! ")

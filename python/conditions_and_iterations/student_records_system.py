@@ -23,6 +23,7 @@ while (choice != 7):
     print("5. Total Student")
     print("6. Average marks")
     print("7. Exit")
+
     choice = int(input("\nEnter Your choice: "))
     if(choice == 1):
         print(25 * "-")
@@ -31,6 +32,7 @@ while (choice != 7):
 
         for student, data in students.items():
                 print(f"{student: <10} {data['age']: <6} {data['marks']}")
+        print(25 * "-")
     
     elif(choice == 2):
         name = input("Enter the name of student: ").strip().title()
@@ -64,15 +66,13 @@ while (choice != 7):
         print(f"Total number of students = {len(students)}")
 
     elif(choice == 6):
-        sum = 0
-        for student, data in students.items():
-            for key, value in data.items():
-                if key == "marks":
-                    sum += value
+        total = 0
+        for data in students.values():
+            total += data['marks']
 
         n = len(students)
         print(f"Total number of students = {n}")
-        average = float(sum) / float(n)
+        average = float(total) / float(n)
         print(f"Average marks = {average: .3f}")
 
     elif(choice == 7):
